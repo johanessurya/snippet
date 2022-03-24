@@ -143,3 +143,58 @@ cp .env.example .env
 composer install
 php artisan key:generate && php artisan jwt:secret
 ```
+
+Cert Bot Let's Encrypt
+---
+References: https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal
+
+```
+sudo apt install snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --apache
+```
+
+
+GIT
+---
+
+Git Ignore Permission: `git config core.fileMode false`
+
+
+Laravel Troubleshooting
+-------
+
+When accessing route something like `domain.com/forgot-password` got response **404 Not Found**. It might because:
+
+1. Mod Rewrite disabled
+2. Apache `.conf` didn't setup correctly
+
+Enable Mod Rewrite: `sudo a2enmod rewrite`
+
+Setup apache `.conf`: Go to your virtual host domain `.conf` and add
+
+```
+<Directory "/path/to/public">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
+
+So it might look something like this
+
+```
+DocumentRoot /path/to/public
+<Directory "/path/to/public">
+    # allow from all
+    # Options None
+    # Require all granted
+
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+ServerName domain-name.com
+```
