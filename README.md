@@ -26,6 +26,30 @@ mkdir ~/.ssh
 vim ~/.ssh/authorized_keys
 ```
 
+Management User(Linux)
+---
+
+**Menambahkan User ke Group**
+
+`useradd -g [group-name] [user-name]`
+
+Example:
+
+- `useradd -g www-data john`
+- `useradd -g www-data jane`
+
+**Check User didalam Group**
+
+Untuk mengecheck user apa saja yang ada didalam sebuah group
+
+`grep ^[group-name] /etc/group`
+
+SSH
+---
+
+Get public key for `authorized_keys`: `ssh-keygen -y -f /path_to_downloaded_key-pair.pem`
+
+
 Install All Dependencies
 ----
 
