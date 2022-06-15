@@ -29,7 +29,7 @@ vim ~/.ssh/authorized_keys
 Management User(Linux)
 ---
 
-**Menambahkan User ke Group**
+**Membuat `user` baru dan menambahkan ke `group`**
 
 `useradd -g [group-name] [user-name]`
 
@@ -37,6 +37,15 @@ Example:
 
 - `useradd -g www-data john`
 - `useradd -g www-data jane`
+
+**Menambahkan `group` ke `user` yang sudah pernah dibuat**
+
+`usermod -a -G [group-name] [user-name]`
+
+Example:
+
+- `usermod -a -G www-data john`
+- `usermod -a -G www-data jane`
 
 **Check User didalam Group**
 
