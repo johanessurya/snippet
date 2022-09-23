@@ -4,7 +4,7 @@ Step To Prepare Server For Laravel
 
 1. Setup DNS
 2. Setup Subdomain if any
-3. Install `zip, git, update, nvm, composer, bower`
+3. Install `update, vim, zip, git, htop, nvm, composer, bower`
 4. Install Webmin, Apache2, PHP, MySQL
 5. 
 
@@ -81,10 +81,16 @@ NOTE: Check your server port setting if you couldn't access your server via IP. 
 1. Firewall
 2. Server configuration. For example if you use AWS, you must add manually on account setting(via WEB)
 
-Install PHP 7.4
+Install PHP
 ---
 
-`sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath`
+Untuk ini, akan menggunakan versi default tiap OS linux. Contoh Ubuntu 18.04, akan menginstall 7.2
+
+`sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath libapache2-mod-php`
+
+**PHP 7.4**
+
+`sudo apt install php7.4 php7.4-cli php7.4-fpm php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath libapache2-mod-php7.4`
 
 Install Apache
 ----
