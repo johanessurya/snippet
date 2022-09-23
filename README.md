@@ -88,9 +88,25 @@ Untuk ini, akan menggunakan versi default tiap OS linux. Contoh Ubuntu 18.04, ak
 
 `sudo apt install php php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath libapache2-mod-php`
 
-**PHP 7.4**
+**PHP 7.4 untuk Ubuntu 18.04**
+
+```
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+```
 
 `sudo apt install php7.4 php7.4-cli php7.4-fpm php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath libapache2-mod-php7.4`
+
+**Cara Uninstall PHP**
+
+```
+sudo apt-get purge php7.*
+sudo apt-get autoclean
+sudo apt-get autoremove
+```
+
+Ref: [Uninstall php 7 in ubuntu 18.04](https://stackoverflow.com/questions/58045685/uninstall-php-7-in-ubuntu-18-04)
 
 Install Apache
 ----
