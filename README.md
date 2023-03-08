@@ -98,6 +98,10 @@ sudo apt update
 
 `sudo apt install php7.4 php7.4-cli php7.4-fpm php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath libapache2-mod-php7.4`
 
+**PHP 8.1 untuk Ubuntu 18.04**
+
+
+
 **Cara Uninstall PHP**
 
 ```
@@ -107,6 +111,11 @@ sudo apt-get autoremove
 ```
 
 Ref: [Uninstall php 7 in ubuntu 18.04](https://stackoverflow.com/questions/58045685/uninstall-php-7-in-ubuntu-18-04)
+
+Switch Between Different PHP Version
+----
+
+`sudo update-alternatives --config php`
 
 Install Apache
 ----
@@ -132,6 +141,17 @@ sudo mysql -u root
 CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'sammy'@'localhost' WITH GRANT OPTION;
 ```
+
+Install MariaDB
+----
+
+```
+sudo apt update
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+```
+
+Ref: [How to Install MariaDB on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-18-04)
 
 Install PhpMyAdmin
 ----
@@ -211,7 +231,6 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --apache
 ```
 
-
 GIT
 ---
 
@@ -251,5 +270,12 @@ DocumentRoot /path/to/public
     AllowOverride All
     Require all granted
 </Directory>
+
+# If you want to use multiple PHP version in one server
+<FilesMatch \.php$>
+    # For Apache version 2.4.10 and above, use SetHandler to run PHP as a fastCGI process server
+    SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
+</FilesMatch>
+
 ServerName domain-name.com
 ```
